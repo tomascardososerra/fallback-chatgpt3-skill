@@ -5,7 +5,7 @@ This is a mycroft fallback skill to query chatgpt
 It will address the fallback question to chatgpt
 
 ## Examples
-* "Fallback chatgpt"
+* It activates as fallback
 
 ## Credits
 Tomás Cardoso Serra
