@@ -25,14 +25,19 @@ class FallbackChatgpt(FallbackSkill):
             payload = {
                 "model": model,
                 "prompt": message.data['utterance'],
+                "max_tokens": 2048,
                 "temperature": 0.4,
                 "top_p": 1,
                 "frequency_penalty": 0,
                 "presence_penalty": 0
             }
-            response = requests.post(api_endpoint, headers=headers, data=json.dumps(payload), timeout=100)
+            response = requests.post(api_endpoint, headers=headers, data=json.dumps(payload))
             response_json = response.json()
+            freason = response_json["choices"][0]["finish_reason"]
+            self.log.info(freason)
             response = response_json["choices"][0]["text"]
+            response = response.replace("\n", ". ")
+            response = response.replace("\r", ". ")
             self.speak(response)
             return True
         except:
