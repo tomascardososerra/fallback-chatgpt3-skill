@@ -5,7 +5,7 @@ import json
 
 api_endpoint = "https://api.openai.com/v1/completions"
 api_key = [YOUR KEY HERE]
-model = "text-davinci-001"
+model = "text-davinci-003"
 
 # Define the request headers
 headers = {
@@ -36,8 +36,6 @@ class FallbackChatgpt(FallbackSkill):
             freason = response_json["choices"][0]["finish_reason"]
             self.log.info(freason)
             response = response_json["choices"][0]["text"]
-            response = response.replace("\n", ". ")
-            response = response.replace("\r", ". ")
             self.speak(response)
             return True
         except:
