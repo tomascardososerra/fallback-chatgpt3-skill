@@ -2,7 +2,7 @@
 This is a mycroft fallback skill to query chatgpt
 
 ## About
-It will address the fallback question to chatgpt
+It will address the fallback question to chatgpt. It requires openai API key that can be obtained for free in their website
 
 ## Examples
 * It activates as fallback
